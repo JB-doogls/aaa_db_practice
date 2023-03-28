@@ -1,0 +1,16 @@
+asyncpg - python-библиотека предоставляющая интерфейс к PostgresSQL
+
+Официальная документация
+https://magicstack.github.io/asyncpg/current/
+
+Нас будет интересовать всего несколько методов
+
+await execute(query, args) - выполнение запроса без получения результата
+await fetchrow(query, args) - выполнение и возврат 1 строки результата
+await fetch(query, args) - выполнение и возврат всех найденных записей
+
+
+Синтаксис библиотеки подразумевает передачу аргументов позиционно, используя символ $
+Пример
+    await pg.fetch('SELECT * FROM table_name WHERE field_1 = $1 AND field_2 = $2', arg_1, arg_2)
+

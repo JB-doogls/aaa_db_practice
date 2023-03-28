@@ -1,0 +1,30 @@
+Создание таблиц
+
+CREATE TABLE cookie_table(
+    user_id int NOT NULL,
+    cookie varchar(128) NOT NULL
+);
+
+CREATE TABLE ip_table(
+    user_id int NOT NULL,
+    ip varchar(64) NOT NULL
+);
+
+
+Поиск cookie с использованием JOIN
+SELECT * FROM
+    (SELECT user_id, cookie FROM cookie_table WHERE user_id = 1) s
+    INNER JOIN
+    (SELECT user_id, cookie FROM cookie_table WHERE user_id = 1) r
+    ON s.cookie = r.cookie;
+
+Поиск cookie с использованием без JOIN
+
+SELECT cookie from cookie_table
+    WHERE user_id = ...;
+
+Загрузка данных
+COPY table_name FROM '/path/file.csv' csv header ;
+
+Создание индекса (обратите внимание - имя индекса должно быть уникальным!)
+CREATE INDEX idx_name ON table_name(field_name,...) ;

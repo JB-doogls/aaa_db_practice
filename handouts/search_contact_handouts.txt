@@ -1,0 +1,17 @@
+Создание таблицы
+CREATE TABLE contacts (
+    sender_id int NOT NULL,
+    recipient_id int NOT NULL,
+    ts timestamptz
+    );
+
+Поиск
+SELECT * FROM contacts WHERE
+    sender_id = user_1 AND recipient_id = user_2
+    ORDER BY ts;
+
+Загрузка данных
+COPY table_name FROM '/path/file.csv' csv header ;
+
+Создание индекса
+CREATE INDEX idx_name ON table_name(field_name,...) ;
